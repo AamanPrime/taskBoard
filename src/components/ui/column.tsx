@@ -1,6 +1,6 @@
 import { Card } from "./card";
 import { SortableContext, verticalListSortingStrategy } from '@dnd-kit/sortable';
-import { EmptyPlaceholder } from './EmptyPlaceholder'; // import this new component
+import { EmptyPlaceholder } from './EmptyPlaceholder';
 
 export const Column = ({ tasks, columnName }) => {
   const columnTasks = tasks[columnName] || [];
@@ -10,7 +10,7 @@ export const Column = ({ tasks, columnName }) => {
     : [`empty-${columnName}`];
 
   return (
-    <div key={columnName} className="bg-white rounded-2xl shadow-xl p-4 min-h-[300px]">
+    <div key={columnName} className="bg-white rounded-2xl shadow-xl p-4 min-h-[300px] overflow-visible">
       <h2 className="text-xl font-semibold text-center mb-4 text-gray-700">{columnName}</h2>
 
       <SortableContext
