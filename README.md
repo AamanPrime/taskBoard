@@ -1,54 +1,42 @@
-# React + TypeScript + Vite
+# Installation Guide
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+## For Linux/macOS
 
-Currently, two official plugins are available:
+```bash
+# Step 1: Install frontend dependencies
+npm install
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
-
-## Expanding the ESLint configuration
-
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
-
-```js
-export default tseslint.config({
-  extends: [
-    // Remove ...tseslint.configs.recommended and replace with this
-    ...tseslint.configs.recommendedTypeChecked,
-    // Alternatively, use this for stricter rules
-    ...tseslint.configs.strictTypeChecked,
-    // Optionally, add this for stylistic rules
-    ...tseslint.configs.stylisticTypeChecked,
-  ],
-  languageOptions: {
-    // other options...
-    parserOptions: {
-      project: ['./tsconfig.node.json', './tsconfig.app.json'],
-      tsconfigRootDir: import.meta.dirname,
-    },
-  },
-})
+# Step 2 (all-in-one command):
+npm install && npm run dev & cd src/api && python3 -m venv venv && source venv/bin/activate && pip install -r requirements.txt && python3 main.py
 ```
 
-You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
+> 💡 You may want to run the backend commands in a separate terminal window to keep both servers running.
 
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x'
-import reactDom from 'eslint-plugin-react-dom'
+---
 
-export default tseslint.config({
-  plugins: {
-    // Add the react-x and react-dom plugins
-    'react-x': reactX,
-    'react-dom': reactDom,
-  },
-  rules: {
-    // other rules...
-    // Enable its recommended typescript rules
-    ...reactX.configs['recommended-typescript'].rules,
-    ...reactDom.configs.recommended.rules,
-  },
-})
+## For Windows
+
+```bat
+:: Step 1: Install frontend dependencies
+npm install
+
+:: Step 2: Start frontend dev server in background (opens new terminal window)
+start npm run dev
+
+:: Step 3: Navigate to backend folder
+cd src\api
+
+:: Step 4: Create a virtual environment
+python -m venv venv
+
+:: Step 5: Activate the virtual environment
+venv\Scripts\activate
+
+:: Step 6: Install backend dependencies
+pip install -r requirements.txt
+
+:: Step 7: Run the backend server
+python main.py
 ```
+
+> ✅ Use `cmd` or PowerShell. If you're using Git Bash or WSL, refer to the Linux/macOS section.
